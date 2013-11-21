@@ -2014,7 +2014,18 @@ SELECT * FROM POST WHERE BLOG_ID = #{id}]]></source>
         </p>
 
         <h4>Using a Custom Cache</h4>
-
+        
+        <p><span class="label important">NOTE</span>
+           <strong>Settings of cache (like eviction strategy, read write..etc.) in section above DO NOT APPLY
+           	when using Custom Cache
+           </strong>
+           
+           In versions before 3.1.0 custom caches were decorated same way as internal mybatis cache (see CacheBuilder#setDefaultDecorators)
+           See https://code.google.com/p/mybatis/issues/detail?id=352 for more details.
+           Since 3.1.0 tt's up to custom cache (and its configuration) to implement those features.
+           
+        </p>
+        
         <p>
           In addition to customizing the cache in these ways, you can also completely override the cache
           behavior by implementing your own cache, or creating an adapter to other 3rd party caching
